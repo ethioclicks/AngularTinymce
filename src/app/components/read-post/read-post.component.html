@@ -1,0 +1,21 @@
+<div class="container">
+    <table class="table">
+        <thead class="table">
+            <th>Post Title</th>
+            <th class="col-6">Post Description</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of Posts">
+                <td>
+                    {{post.title}}
+                </td>
+                <td [innerHtml]="post.content" >
+                   
+<!-- <div [innerHtml]="post.content" ></div>  -->
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+<hr>

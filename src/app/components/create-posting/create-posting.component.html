@@ -1,0 +1,37 @@
+<h1>TinyMCE Angular Demo</h1>
+<div>
+    <form [formGroup]="postForms" (ngSubmit)="SaveData()">
+        <mat-form-field appearance="outline">
+            <mat-label>Posted by</mat-label>
+            <input matInput formControlName="title" placeholder="Placeholder">
+        </mat-form-field>
+
+        <editor formControlName="content" [init]="{
+    base_url: '/tinymce', 
+    suffix: '.min',
+     height: 500,
+
+     plugins: [
+
+        'a11ychecker','advlist','advcode','advtable','autolink','checklist','export',
+
+       'lists','link','image','charmap','preview','anchor','searchreplace','visualblocks',
+
+       'powerpaste','fullscreen','formatpainter','insertdatetime','media','table','help','wordcount'
+
+     ],
+
+     toolbar:
+
+      'undo redo | casechange blocks | bold italic backcolor | \
+
+      alignleft aligncenter alignright alignjustify | \
+
+      bullist numlist checklist outdent indent | removeformat | a11ycheck code table help'
+
+   }" initialValue="Welcome to TinyMCE Angular"></editor>
+
+        <button type="submit" style="margin-left: 8px;" mat-raised-button color="primary">Submit</button>
+
+    </form>
+</div>
