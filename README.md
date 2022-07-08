@@ -41,21 +41,26 @@ after installing the tinymce.
 
 then for the html to have the editor we need we have to add the necessary lines to /src/app/app.component.html.
 
-`<h1>TinyMCE Angular </h1>
-<editor
+`<editor
   [init]="{ base_url: '/tinymce', // Root for resources
   suffix: '.min'        // Suffix to use when loading resources
   plugins: 'lists link image table code help wordcount' }"
 ></editor>`
-we then add the Tinymce assest to angular.json 
+
+we then add the Tinymce assest to angular.json.
+
 `"assets": [
   { "glob": "**/*", "input": "node_modules/tinymce", "output": "/tinymce/" }
 ]`
+
 To load the tinymce we added we have to add a dependency provider to the module using the TINYMCE_SCRIPT_SRC token in `src/app/app.module.ts`.
+
 `providers: [
     { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
   ]`
+  
 which will have been using the scripts that are necessary to use.
+
 `"scripts": [
   "node_modules/tinymce/tinymce.min.js"
 ]`
