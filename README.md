@@ -36,8 +36,11 @@ For Angular 14, use integration version to the latest:
 
 after installing the tinymce.
 `go to src/app/app.module.ts` and add the following imports.
+
 `import { EditorModule } from '@tinymce/tinymce-angular';`
+
 then for the html to have the editor we need we have to add the necessary lines to /src/app/app.component.html.
+
 `<h1>TinyMCE Angular </h1>
 <editor
   [init]="{ base_url: '/tinymce', // Root for resources
