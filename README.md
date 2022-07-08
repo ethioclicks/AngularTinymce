@@ -44,8 +44,7 @@ then for the html to have the editor we need we have to add the necessary lines 
 `<editor
   [init]="{ base_url: '/tinymce', // Root for resources
   suffix: '.min'        // Suffix to use when loading resources
-  plugins: 'lists link image table code help wordcount' }"
-></editor>`
+  plugins: 'lists link image table code help wordcount' }"></editor>`
 
 we then add the Tinymce assest to angular.json.
 
