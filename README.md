@@ -33,3 +33,26 @@ For Angular 14, use integration version to the latest:
 
 * For the TinyMCE Angular Quick Start, see: [TinyMCE Documentation - Angular Integration](https://www.tiny.cloud/docs/tinymce/6/angular-cloud/).
 * For the TinyMCE Angular Technical Reference, see: [TinyMCE Documentation - TinyMCE Angular Technical Reference](https://www.tiny.cloud/docs/tinymce/6/angular-ref/).
+
+after installing the tinymce.
+`go to src/app/app.module.ts` and add the following imports.
+`import { EditorModule } from '@tinymce/tinymce-angular';`
+then for the html to have the editor we need we have to add the necessary lines to /src/app/app.component.html.
+`<h1>TinyMCE Angular </h1>
+<editor
+  [init]="{ base_url: '/tinymce', // Root for resources
+  suffix: '.min'        // Suffix to use when loading resources
+  plugins: 'lists link image table code help wordcount' }"
+></editor>`
+we then add the Tinymce assest to angular.json 
+`"assets": [
+  { "glob": "**/*", "input": "node_modules/tinymce", "output": "/tinymce/" }
+]`
+To load the tinymce we added we have to add a dependency provider to the module using the TINYMCE_SCRIPT_SRC token in `src/app/app.module.ts`.
+`providers: [
+    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
+  ]`
+which will have been using the scripts that are necessary to use.
+`"scripts": [
+  "node_modules/tinymce/tinymce.min.js"
+]`
